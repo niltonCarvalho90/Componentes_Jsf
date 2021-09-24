@@ -1,7 +1,8 @@
 package br.com.drogaria.dao;
 
-
+import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import br.com.drogaria.domain.Fabricante;
 import br.com.drogaria.util.JPAUtil;
@@ -27,16 +28,15 @@ public class FabricanteDao {
 	public void setItens(Fabricante itens) {
 		this.itens = itens;
 	}	
-	
-	public List<Fabricante> mostrarNomes(){
+
+	public ArrayList<Fabricante> Lista() {
 		EntityManager em = JPAUtil.getEntityManager();
-		this.em = em;
-		
-		String jpql = "SELECT p FROM Fabricante p"; 
-		return em.createQuery(jpql, Fabricante.class)
-		.getResultList();
-	}
-		
+        this.em = em;
+
+        String jpql = "SELECT p FROM Fabricante p";
+        return (ArrayList<Fabricante>) em.createQuery(jpql, Fabricante.class).getResultList();
+	}	
+	
 	public void cadastrar(Fabricante fabricante) {
 		EntityManager em = JPAUtil.getEntityManager();
 		this.em = em;

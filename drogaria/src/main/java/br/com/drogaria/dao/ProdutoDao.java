@@ -1,6 +1,7 @@
 package br.com.drogaria.dao;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -19,14 +20,13 @@ public class ProdutoDao {
 		this.em = em;
 	}
 	
-	public List<Produto> mostrarNomes(){
+	public ArrayList<Produto> Lista() {
 		EntityManager em = JPAUtil.getEntityManager();
-		this.em = em;
-		
-		String jpql = "SELECT p FROM Produto p"; 
-		return em.createQuery(jpql, Produto.class)
-		.getResultList();
-	}
+        this.em = em;
+
+        String jpql = "SELECT p FROM Produto p";
+        return (ArrayList<Produto>) em.createQuery(jpql, Produto.class).getResultList();
+	}	
 
 	public void cadastrar(Produto produto) {
 		EntityManager em = JPAUtil.getEntityManager();

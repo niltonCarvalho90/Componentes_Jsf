@@ -23,7 +23,7 @@ public class Produto {
 	
 	@ManyToOne
 	@JoinColumn(name="fabricante_codigo")
-	private Fabricante fabricante;
+	private Fabricante fabricante = new Fabricante();
 	
 	
 	public Long getCodigo() {

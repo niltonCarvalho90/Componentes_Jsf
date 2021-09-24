@@ -1,7 +1,6 @@
 package br.com.drogaria.bean;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -46,15 +45,12 @@ public class FabricanteBean {
 
 	@PostConstruct
 	public void mostrarLista() {
-		FabricanteDao fabricanteDao = new FabricanteDao();
-		
-		
-		List<Fabricante> lista = fabricanteDao.mostrarNomes();
-		itens = new ArrayList<Fabricante>(lista);
+		FabricanteDao Dao = new FabricanteDao();
+				
+		itens = Dao.Lista();
 	}
 	
-	
-	public void prepararIncluir() {
+	public void prepararIncluir(){
 		nomeFab  = new Fabricante();
 	}
 	
